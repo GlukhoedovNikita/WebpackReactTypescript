@@ -13,11 +13,11 @@
     "stylelint:fix": "stylelint \"src/**/*.{css,sass,scss}\" --fix --color"
   },
   "lint-staged": {
-    "*.{ts|tsx}": [
+    "*.(ts|tsx)": [
       "npm run eslint:fix",
       "git add ."
     ],
-    "*.{scss|sass|css}": [
+    "*.(scss|sass|css)": [
       "npm run stylelint:fix",
       "git add ."
     ]
