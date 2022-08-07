@@ -7,7 +7,7 @@
 
     "outDir": "dist",
     "rootDir": "src",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "noEmit": true,
     "moduleResolution": "node",
