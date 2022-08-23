@@ -1,4 +1,3 @@
-
 const isDev = process.env.MODE === 'development'
 
 module.exports = {

@@ -1,6 +1,10 @@
+/* eslint-disable no-confusing-arrow, no-unused-expressions */
+
 import merge from 'webpack-merge'
 
-import {isProd} from './webpack/utils/env'
-import { webpackConfigBase, webpackConfigDev, webpackConfigProd } from './webpack';
+import { env } from './webpack/utils'
+import { webpackConfigBase, webpackConfigDev, webpackConfigProd } from './webpack'
 
-export default () => isProd ? merge(webpackConfigProd, webpackConfigBase) : merge(webpackConfigDev, webpackConfigBase) 
+export default () => {
+    env.isProd ? merge(webpackConfigProd, webpackConfigBase) : merge(webpackConfigDev, webpackConfigBase)
+}

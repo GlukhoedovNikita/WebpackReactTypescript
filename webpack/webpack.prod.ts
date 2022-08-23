@@ -1,4 +1,4 @@
-import { Configuration } from 'webpack';
+import { Configuration } from 'webpack'
 
 import TerserJSPlugin from 'terser-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
@@ -9,8 +9,8 @@ const webpackConfigProd: Configuration = {
             {
                 test: /\.(s*)css$/,
                 exclude: /node_modules/,
-                use: [MiniCssExtractPlugin.loader]    
-            },             
+                use: [MiniCssExtractPlugin.loader]
+            },
         ]
     },
 
@@ -26,11 +26,11 @@ const webpackConfigProd: Configuration = {
         maxEntrypointSize: 512000,
         maxAssetSize: 512000,
     },
-    
+
     optimization: {
         minimize: true,
         minimizer: [new TerserJSPlugin()],
     },
 }
 
-export default webpackConfigProd;
+export default webpackConfigProd

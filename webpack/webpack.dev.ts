@@ -1,4 +1,4 @@
-import { Configuration } from 'webpack';
+import { Configuration } from 'webpack'
 
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin'
 import ESlintWebpackPlugin from 'eslint-webpack-plugin'
@@ -19,6 +19,10 @@ const webpackConfigDev: Configuration = {
     // @ts-ignore //
     devServer: {
         // open: true,
+        historyApiFallback: true,
+        static: {
+            publicPath: '/'
+        },
         port: 3000,
         hot: true,
     },
@@ -29,4 +33,4 @@ const webpackConfigDev: Configuration = {
     ]
 }
 
-export default webpackConfigDev;
+export default webpackConfigDev

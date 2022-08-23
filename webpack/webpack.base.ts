@@ -1,16 +1,15 @@
-import { Configuration } from "webpack"
+import { Configuration } from 'webpack'
 
-import HtmlWebpackPlugin from "html-webpack-plugin";
+import HtmlWebpackPlugin from 'html-webpack-plugin'
 
-import { mode, isDev } from './utils/env';
-import { pathResolve } from "./utils/pathResolve";
+import { env, pathResolve } from './utils'
 
 const webpackConfigBase: Configuration = {
-    mode: mode,
+    mode: env.mode as 'development' | 'production',
     entry: pathResolve('src/index.tsx'),
     output: {
         path: pathResolve('dist'),
-        filename: isDev ? '[name].js' : '[name].[contenthash].js',
+        filename: env.isDev ? '[name].js' : '[name].[contenthash].js',
         clean: true,
     },
 
@@ -33,7 +32,7 @@ const webpackConfigBase: Configuration = {
 
             {
                 test: /\.(jpg|png|gif)$/,
-                type: 'asset/resource',      
+                type: 'asset/resource',
             },
             {
                 test: /\.svg/,
@@ -41,11 +40,11 @@ const webpackConfigBase: Configuration = {
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
-                type: 'asset/resource',            
+                type: 'asset/resource',
             },
         ]
     },
-    
+
     plugins: [
         new HtmlWebpackPlugin({
             template: pathResolve('public/index.html')
@@ -53,21 +52,19 @@ const webpackConfigBase: Configuration = {
     ],
 
     devtool: 'inline-source-map',
-    
+
     resolve: {
         alias: {
-            '@components': pathResolve('src/components/'),
+            '@common': pathResolve('src/common/'),
             '@pages': pathResolve('src/pages/'),
-            '@hooks': pathResolve('src/hooks/'),
-            '@assets': pathResolve('src/assets/'),
-            '@redux': pathResolve('src/redux/'),
-            '@styles': pathResolve('src/styles/'),
-            '@constants': pathResolve('src/constans/'),
+            '@routes': pathResolve('src/routes/'),
+            '@store': pathResolve('src/store/'),
             '@services': pathResolve('src/services/'),
-            '@utils': pathResolve('src/utils/'),
-        },            
+            '@assets': pathResolve('src/assets/'),
+            '@styles': pathResolve('src/styles/'),
+        },
         extensions: ['.js', '.jsx', '.ts', '.tsx'],
     }
 }
 
-export default webpackConfigBase;
+export default webpackConfigBase
