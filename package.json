@@ -16,8 +16,8 @@
   },
   "lint-staged": {
     "*.(ts|tsx)": [
-      "npm run eslint:fix",
       "npm run jest",
+      "npm run eslint:fix",
       "git add ."
     ],
     "*.(scss|sass|css)": [

@@ -20,6 +20,7 @@ const config: Config = {
         '@styles/(.*)': `${src}styles/$1`
     },
     testEnvironment: 'jsdom',
+    passWithNoTests: true,
     setupFilesAfterEnv: [`${rootDir}jest.setup.ts`]
 }
 
