@@ -11,6 +11,7 @@ const webpackConfigBase: Configuration = {
         path: pathResolve('dist'),
         filename: env.isDev ? '[name].js' : '[name].[contenthash].js',
         clean: true,
+        publicPath: '/'
     },
 
     module: {
